@@ -18,6 +18,36 @@ create table product (
   on delete restrict
 );
 
+create table customer (
+  id int primary key auto_increment,
+  firstname varchar(50) not null,
+  lastname varchar(50) not null,
+  address varchar(50) not null,
+  zip varchar(10) not null,
+  city varchar(30) not null
+);
+
+create table `order` (
+  id int primary key auto_increment,
+  order_date timestamp default current_timestamp,
+  customer_id int not null,
+  index customer_id(customer_id),
+  foreign key (customer_id) references customer(id)
+  on delete restrict
+);
+
+create table order_row (
+  order_id int not null,
+  index order_id(order_id),
+  foreign key (order_id) references `order`(id)
+  on delete restrict,
+  product_id int not null,
+  index product_id(product_id),
+  foreign key (product_id) references product(id)
+  on delete restrict
+);
+
+
 insert into category(name) value ('Shoes');
 insert into category(name) value ('Pants');
 
