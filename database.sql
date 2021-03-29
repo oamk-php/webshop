@@ -51,9 +51,9 @@ create table order_row (
 insert into category(name) value ('Shoes');
 insert into category(name) value ('Pants');
 
-insert into product (name, price,category_id) values ('Test shoe 1',10,1);
-insert into product (name, price,category_id) values ('Test shoe 2',20,1);
+insert into product (name, price,image,category_id) values ('Test shoe 1',10,'placeholder.png',1);
+insert into product (name, price,image,category_id) values ('Test shoe 2',20,'placeholder.png',1);
 
-insert into product (name, price,category_id) values ('Test pants 1',10,2);
-insert into product (name, price,category_id) values ('Test pants 2',20,2);
-insert into product (name, price,category_id) values ('Test pants 3',30,2);
+insert into product (name, price,image,category_id) values ('Test pants 1',10,'placeholder.png',2);
+insert into product (name, price,image,category_id) values ('Test pants 2',20,'placeholder.png',2);
+insert into product (name, price,image,category_id) values ('Test pants 3',30,'placeholder.png',2);

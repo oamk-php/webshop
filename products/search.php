@@ -6,12 +6,15 @@ require_once '../inc/headers.php';
 $uri = parse_url(filter_input(INPUT_SERVER,'PATH_INFO'),PHP_URL_PATH);
 // Parameters are separated with slash (/)
 $parameters = explode('/',$uri);
+
 // Category id is first parameter so it follows after address separated with slash (/)
-$category_id = $parameters[1]; 
+$phrase = $parameters[1]; 
 
 try {
   $db = openDb();
-  selectAsJson($db,"select * from product where category_id = $category_id");
+  $sql = "select * from product where name like '%$phrase%'";
+  selectAsJson($db,$sql);
+
 }
 catch (PDOException $pdoex) {
   returnError($pdoex);
